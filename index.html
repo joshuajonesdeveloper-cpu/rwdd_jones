@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- Tells the browser this is a regular HTML5 page so it doesn't fall back
+     into old "quirks mode" and show things in weird ways. -->
+<html lang="en">
+<!-- This is the root of the page. lang="en" tells screen readers to read
+     the page in English. -->
+<head>
+  <meta charset="UTF-8">
+  <!-- Sets the character encoding. UTF-8 just keeps symbols and special
+       characters from turning into random junk. -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- The viewport tag. Phones normally pretend they're a big desktop
+       screen and zoom way out. This makes them use their real width, which
+       is what lets my media queries work on mobile. -->
+
+  <title>Joshua Jones | My Web Dev Path</title>
+  <!-- My custom page title. This is the text on the browser tab. -->
+
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Links my external stylesheet from the css folder. All the layout and
+       the three breakpoints live in there. -->
+</head>
+
+<body>
+
+  <header class="container intro">
+    <!-- The header is the top part of the page. I gave it the container
+         class too, so it lines up with everything below it. -->
+
+    <h1>My Web Dev Path</h1>
+    <!-- Main headline. I only use one h1 on the page. -->
+
+    <p>Hi, I'm Joshua. This page is about what I'm learning and where I want to go with it. Drag your browser window wider and narrower and you'll see the background color and the number of columns change.</p>
+    <!-- Intro paragraph. It also tells whoever's grading how to see the
+         breakpoints working. -->
+
+    <img class="banner"
+         src="images/banner.png"
+         alt="Illustration of a code editor window with colorful lines of code on a dark blue background">
+    <!-- A banner image. The CSS keeps it from ever going wider than its
+         container. The alt text describes what's in the picture for screen
+         readers. -->
+  </header>
+
+  <main class="container">
+    <!-- main holds the real content of the page, which is my six boxes. -->
+
+    <div class="wrapper">
+      <!-- The wrapper is the flexbox that holds the boxes. It's what lets
+           them stack on a phone and spread into columns on bigger screens. -->
+
+      <section class="section">
+        <!-- Each section is one content box. I'm using the section tag
+             instead of a plain div since each one is its own topic with its
+             own heading. -->
+        <h2>What I'm Studying</h2>
+        <p>I'm at Northern Virginia Community College working on an AAS in Information Systems Technology and a certificate in Web Design and Development. I plan to finish around 2027.</p>
+      </section>
+
+      <section class="section">
+        <h2>Where I'm Headed</h2>
+        <p>My goal is a remote frontend or software engineering job. I like that I can build something, open it in a browser, and see right away if it works.</p>
+      </section>
+
+      <section class="section">
+        <h2>Languages I'm Learning</h2>
+        <p>HTML and CSS are the ones I use the most, and I'm working on JavaScript too. For my classes I've also done Python and SQL, which showed me how the data side of a site works.</p>
+      </section>
+
+      <section class="section">
+        <h2>My Tools</h2>
+        <p>I write everything in VS Code and use Live Preview to check my pages as I go. I keep my projects on GitHub so I always have a backup and a live link to share.</p>
+      </section>
+
+      <section class="section">
+        <h2>CSS I've Practiced</h2>
+        <p>I've done a lot of drills on flexbox, transitions, transforms, and keyframe animations. Flexbox is what I used to build the row of boxes you're looking at right now.</p>
+      </section>
+
+      <section class="section">
+        <h2>What's Next</h2>
+        <p>I want to build a few real portfolio projects, get more comfortable with JavaScript, and line up an internship for summer 2027.</p>
+      </section>
+
+    </div>
+    <!-- end of wrapper -->
+  </main>
+
+  <footer class="site-footer">
+    <!-- The footer at the bottom of the page. It's outside the container so
+         the dark bar can stretch all the way across. Its styling is in my
+         external stylesheet, not in the HTML. -->
+    <p>&copy; 2026 Joshua Jones | Responsive Media Query Assignment</p>
+  </footer>
+
+</body>
+</html>
