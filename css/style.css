@@ -1,0 +1,152 @@
+/* ---------------------------------------------------------
+   MOBILE FIRST STYLES
+   These are the base styles and they're written for phones. Bigger
+   screens get adjusted later in the media queries at the bottom, so
+   I'm not undoing a pile of desktop code for mobile.
+   --------------------------------------------------------- */
+
+/* body is the whole page. I take off the margin the browser adds by
+   default, pick a simple font, set line-height to 1.6 so the text isn't
+   crammed together, and start with a light gray background. */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background: #f4f4f4;
+}
+
+/* The container keeps my content in a centered column. max-width stops it
+   from stretching across huge monitors. "margin: 40px auto" gives 40px on
+   the top and bottom and auto splits the left and right space evenly,
+   which is what centers it. box-sizing makes the padding count inside the
+   max width so it can't cause sideways scrolling. */
+.container {
+  box-sizing: border-box;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* The header area with the headline, intro and banner. I center the text
+   in it and take the extra bottom margin off so there's not a big gap
+   before the boxes. */
+.intro {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+/* Headline. Small gap underneath, and no top margin so the page doesn't
+   start with a weird blank space. */
+h1 {
+  margin: 0 0 8px;
+}
+
+/* The banner image. max-width: 100% means it can never be wider than the
+   box it's in, and height: auto keeps the original shape so it doesn't get
+   squished. display: block removes the little gap browsers leave under
+   images. Rounded corners are just for looks. */
+.banner {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto 0;
+  border-radius: 12px;
+}
+
+/* The wrapper that holds all the boxes. It's a flexbox, and on mobile
+   flex-direction: column stacks them so there's one per row. flex-wrap
+   lets them move onto new rows later, and gap puts 20px between them. */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* One content box. White background, rounded corners, padding inside so
+   the text has room, and a soft shadow so it looks a little lifted off the
+   page. */
+.section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings inside the boxes. I take off the top margin so the heading sits
+   evenly with the padding, and use a dark blue so it stands out from the
+   body text. */
+.section h2 {
+  margin: 0 0 8px;
+  color: #1e4f91;
+}
+
+/* Paragraphs inside the boxes. No bottom margin so the last line doesn't
+   leave extra empty space at the bottom of the box. */
+.section p {
+  margin: 0;
+}
+
+/* The footer bar at the bottom. Dark background with light text so it
+   stands out, centered text, and padding so the words aren't pushed
+   against the edges. It's styled here in the external stylesheet. */
+.site-footer {
+  background: #1f2937;
+  color: #f4f4f4;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Takes the default margin off the paragraph in the footer so the bar
+   doesn't end up with extra space at the bottom. */
+.site-footer p {
+  margin: 0;
+}
+
+/* ---------------------------------------------------------
+   TABLET (600px and up)
+   --------------------------------------------------------- */
+
+/* min-width: 600px means these rules only turn on once the screen is at
+   least 600px wide. The background turns light blue so I can see the
+   breakpoint working. The boxes switch from a column to a row that wraps,
+   and each one gets half the row minus the 20px gap (that's the calc), so
+   2 fit side by side. justify-content: center keeps any leftover box
+   centered instead of stuck on the left. */
+@media (min-width: 600px) {
+  body { background: #cfe8ff; }
+
+  .wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .section { width: calc((100% - 20px) / 2); }
+}
+
+/* ---------------------------------------------------------
+   DESKTOP (900px and up)
+   --------------------------------------------------------- */
+
+/* Background turns light green. A row of 3 boxes has two 20px gaps, so I
+   subtract 40px and split what's left into thirds. That gives me 3
+   columns. */
+@media (min-width: 900px) {
+  body { background: #d8ffd8; }
+
+  .section { width: calc((100% - 40px) / 3); }
+}
+
+/* ---------------------------------------------------------
+   LARGE DESKTOP (1200px and up)
+   --------------------------------------------------------- */
+
+/* Background turns light pink. A row of 4 boxes has three 20px gaps, so I
+   subtract 60px and split the rest into fourths for 4 columns. Doing the
+   math with calc means the row never overflows and I don't have to guess a
+   percentage. */
+@media (min-width: 1200px) {
+  body { background: #ffe0f0; }
+
+  .section { width: calc((100% - 60px) / 4); }
+}
